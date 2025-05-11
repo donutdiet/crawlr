@@ -4,7 +4,6 @@ import { StyleSheet } from "react-native";
 export const defaultStyles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 26,
   },
   inputField: {
     height: 50,

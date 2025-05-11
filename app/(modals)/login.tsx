@@ -12,7 +12,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 
 const Page = () => {
   return (
-    <View style={defaultStyles.container}>
+    <View style={[defaultStyles.container, { padding: 26 }]}>
       <TextInput
         autoCapitalize="none"
         placeholder="Email"

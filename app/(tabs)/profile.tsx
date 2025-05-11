@@ -7,7 +7,7 @@ const Page = () => {
   const router = useRouter();
 
   return (
-    <View style={defaultStyles.container}>
+    <View style={[defaultStyles.container, { padding: 26 }]}>
       <TouchableOpacity
         style={defaultStyles.btn}
         onPress={() => router.push("/(modals)/login")}
