@@ -1,12 +1,12 @@
 import { View, Text } from "react-native";
 import React from "react";
 
-const Bars = () => {
+const Page = () => {
   return (
     <View>
-      <Text></Text>
+      <Text>Activity</Text>
     </View>
   );
 };
 
-export default Bars;
+export default Page;

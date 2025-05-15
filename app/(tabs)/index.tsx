@@ -1,15 +1,17 @@
 import { View, Text } from "react-native";
-import React from "react";
+import React, { useMemo } from "react";
 import { Link, Stack } from "expo-router";
 import ExploreHeader from "@/components/ExploreHeader";
-import Bars from "@/components/Bars";
 import { defaultStyles } from "@/constants/Styles";
+import osuBarsData from "@/data/osu_bars.json";
+import BarList from "@/components/BarList";
 
 const Page = () => {
+  const bars = useMemo(() => osuBarsData as any, []);
   return (
     <View style={defaultStyles.container}>
       <Stack.Screen options={{ header: () => <ExploreHeader /> }} />
-      <Bars />
+      <BarList bars={bars} />
     </View>
   );
 };

@@ -4,25 +4,29 @@ import { Tabs } from "expo-router";
 import Colors from "@/constants/Colors";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import Feather from "@expo/vector-icons/Feather";
 
 const Layout = () => {
   return (
-    <Tabs screenOptions={{ tabBarActiveTintColor: Colors.primary }}>
+    <Tabs
+      initialRouteName="index"
+      screenOptions={{ tabBarActiveTintColor: Colors.primary }}
+    >
       <Tabs.Screen
-        name="deals"
+        name="events"
         options={{
-          tabBarLabel: "Deals",
+          tabBarLabel: "Events",
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="beer-outline" color={color} size={size} />
+            <MaterialIcons name="event" color={color} size={size} />
           ),
         }}
       />
       <Tabs.Screen
-        name="favorites"
+        name="activity"
         options={{
-          tabBarLabel: "Favorites",
+          tabBarLabel: "Activity",
           tabBarIcon: ({ color, size }) => (
-            <MaterialIcons name="favorite-outline" color={color} size={size} />
+            <Feather name="activity" color={color} size={size} />
           ),
         }}
       />
@@ -36,11 +40,11 @@ const Layout = () => {
         }}
       />
       <Tabs.Screen
-        name="events"
+        name="deals"
         options={{
-          tabBarLabel: "Events",
+          tabBarLabel: "Deals",
           tabBarIcon: ({ color, size }) => (
-            <MaterialIcons name="event" color={color} size={size} />
+            <Ionicons name="beer-outline" color={color} size={size} />
           ),
         }}
       />
