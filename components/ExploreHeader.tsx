@@ -13,7 +13,7 @@ import Colors from "@/constants/Colors";
 
 const ExploreHeader = () => {
   return (
-    <SafeAreaView style={{ paddingTop: 8 }}>
+    <SafeAreaView edges={["top"]} style={styles.container}>
       <View style={styles.actionRow}>
         <View style={styles.searchBox}>
           <Ionicons name="search" size={20} />
@@ -30,6 +30,10 @@ const ExploreHeader = () => {
 export default ExploreHeader;
 
 const styles = StyleSheet.create({
+  container: {
+    paddingTop: 4,
+    paddingBottom: 16,
+  },
   actionRow: {
     flexDirection: "row",
     alignItems: "center",
