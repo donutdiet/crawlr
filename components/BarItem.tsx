@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, Image } from "react-native";
 import React from "react";
 import { defaultStyles } from "@/constants/Styles";
-import { BarItemProps } from "@/types/bar";
+import { Bar, BarItemProps } from "@/types/bar";
 import Colors from "@/constants/Colors";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import Feather from "@expo/vector-icons/Feather";
