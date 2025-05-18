@@ -41,6 +41,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderColor: Colors.gray,
     borderWidth: StyleSheet.hairlineWidth,
+    backgroundColor: "#fff",
   },
   image: {
     width: 100,

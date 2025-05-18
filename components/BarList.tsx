@@ -1,10 +1,10 @@
 import { View, Text, FlatList, ListRenderItem, StyleSheet } from "react-native";
 import React, { useRef } from "react";
 import { defaultStyles } from "@/constants/Styles";
-import { Bar, BarListProps } from "@/types/bar";
+import { Bar } from "@/types/bar";
 import BarItem from "./BarItem";
 
-const BarList = ({ bars }: BarListProps) => {
+const BarList = (bars: Bar[]) => {
   const listRef = useRef<FlatList>(null);
 
   const renderBarCard: ListRenderItem<Bar> = ({ item }) => (

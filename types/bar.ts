@@ -10,8 +10,9 @@ export type Bar = {
   longitude: number;
 };
 
-export type BarListProps = {
+export type BarMapProps = {
   bars: Bar[];
+  onMarkerSelected: (bar: Bar | null) => void;
 };
 
 export type BarItemProps = {
