@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, Platform } from "react-native";
 import React, { memo, useRef } from "react";
 import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
-import { Bar, BarListProps } from "@/types/bar";
+import { Bar, BarMapProps } from "@/types/bar";
 import Colors from "@/constants/Colors";
 import Feather from "@expo/vector-icons/Feather";
 
@@ -12,12 +12,8 @@ const OSU_INITIAL_REGION = {
   longitudeDelta: 0.01,
 };
 
-const BarMap = memo(({ bars }: BarListProps) => {
+const BarMap = memo(({ bars, onMarkerSelected }: BarMapProps) => {
   const mapRef = useRef<any>(null);
-
-  const onMarkerSelected = (event: Bar) => {
-    console.log(event);
-  };
 
   return (
     <View style={StyleSheet.absoluteFill}>
@@ -36,7 +32,10 @@ const BarMap = memo(({ bars }: BarListProps) => {
               latitude: bar.latitude,
               longitude: bar.longitude,
             }}
-            onPress={() => onMarkerSelected(bar)}
+            onPress={() => {
+              console.log(bar);
+              onMarkerSelected(bar);
+            }}
           >
             <View style={styles.marker}>
               {/* Marker clipping issues on Android */}
