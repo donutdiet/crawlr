@@ -17,7 +17,7 @@ const Page = () => {
   const [selectedBar, setSelectedBar] = useState<Bar | null>(null);
 
   const sheetRef = useRef<BottomSheet>(null);
-  const snapPoints = useMemo(() => [50, "50%", "95%"], []);
+  const snapPoints = useMemo(() => [50, "45%", "90%"], []);
 
   const renderItem = useCallback(
     ({ item }: { item: Bar }) => <BarItem bar={item} />,
@@ -40,6 +40,7 @@ const Page = () => {
         ref={sheetRef}
         snapPoints={snapPoints}
         enableDynamicSizing={false}
+        style={{ paddingHorizontal: 10 }}
       >
         <Text style={styles.bottomSheetHeader}>
           {data.length} Bars Available

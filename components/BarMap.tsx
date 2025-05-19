@@ -1,4 +1,10 @@
-import { View, Text, StyleSheet, Platform } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Platform,
+  TouchableOpacity,
+} from "react-native";
 import React, { memo, useRef } from "react";
 import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
 import { Bar, BarMapProps } from "@/types/bar";
@@ -17,13 +23,17 @@ const BarMap = memo(({ bars, onMarkerSelected }: BarMapProps) => {
 
   return (
     <View style={StyleSheet.absoluteFill}>
-      {/* API key required for deployment */}
+      {/* API key required for deployment https://docs.expo.dev/versions/latest/sdk/map-view/ */}
       <MapView
         style={styles.map}
         provider={PROVIDER_GOOGLE}
+        /* showsUserLocation and showsMyLocationButton not working on Android */
         showsUserLocation
         showsMyLocationButton
         initialRegion={OSU_INITIAL_REGION}
+        /* Padding to keep showsMyLocationButton visible above the selectedBar and BottomSheet */
+        paddingAdjustmentBehavior="automatic"
+        mapPadding={{ top: 0, right: 0, bottom: 150, left: 0 }}
       >
         {bars.map((bar) => (
           <Marker
@@ -37,11 +47,15 @@ const BarMap = memo(({ bars, onMarkerSelected }: BarMapProps) => {
               onMarkerSelected(bar);
             }}
           >
-            <View style={styles.marker}>
+            <TouchableOpacity
+              style={styles.marker}
+              /* Expand clickable area to try to fix unresponsiveness */
+              hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
+            >
               {/* Marker clipping issues on Android */}
               {Platform.OS === "ios" && <Feather name="activity" size={18} />}
               <Text style={styles.markerText}>27</Text>
-            </View>
+            </TouchableOpacity>
           </Marker>
         ))}
       </MapView>

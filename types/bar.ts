@@ -2,10 +2,9 @@ export type Bar = {
   id: number;
   name: string;
   address: string;
-  zip: number;
   vibes: string[];
   price: string;
-  image: string;
+  image: string | null;
   latitude: number;
   longitude: number;
 };

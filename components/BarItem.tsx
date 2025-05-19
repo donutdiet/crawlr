@@ -9,7 +9,11 @@ import Feather from "@expo/vector-icons/Feather";
 const BarItem = ({ bar }: BarItemProps) => {
   return (
     <View style={styles.container}>
-      <Image source={{ uri: bar.image }} style={styles.image} />
+      {typeof bar.image === "string" ? (
+        <Image source={{ uri: bar.image }} style={styles.image} />
+      ) : (
+        <View style={[styles.image, { backgroundColor: Colors.primary }]} />
+      )}
 
       <View style={styles.detailsContainer}>
         <Text style={styles.name}>{bar.name}</Text>
